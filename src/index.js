@@ -1,8 +1,11 @@
 module.exports = function toReadable (number) {
-    let numberstring = nubmer.toString();
-    let num = numberstring[numberstring.length - 1] ?? 0;
-    let dec = numberstring[numberstring.length - 2] ?? 0;
-    let hundred = numberstring[numberstring.length - 3] ?? 0;
+    if (number === 0) {
+        return 'zero';
+    }
+    let numberstring = number.toString();
+    let num = +numberstring[numberstring.length - 1] ?? 0;
+    let dec = +numberstring[numberstring.length - 2] ?? 0;
+    let hundred = +numberstring[numberstring.length - 3] ?? 0;
     let result = '';
     let numread = '';
     let decread = '';
@@ -143,10 +146,6 @@ module.exports = function toReadable (number) {
         case 0:
         hundredread = '';
         break;
-    };
-    if (num === 0 && dec === 0 && hundred === 0) {
-        result = 'zero';
-        return result;
     };
     result = `${hundredread}${decread}${numread}`;
     return result.trim();
