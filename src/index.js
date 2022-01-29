@@ -3,9 +3,9 @@ module.exports = function toReadable (number) {
         return 'zero';
     }
     let numberstring = number.toString();
-    let num = +numberstring[numberstring.length - 1] ?? 0;
-    let dec = +numberstring[numberstring.length - 2] ?? 0;
-    let hundred = +numberstring[numberstring.length - 3] ?? 0;
+    let num = +numberstring[numberstring.length - 1] || 0;
+    let dec = +numberstring[numberstring.length - 2] || 0;
+    let hundred = +numberstring[numberstring.length - 3] || 0;
     let result = '';
     let numread = '';
     let decread = '';
